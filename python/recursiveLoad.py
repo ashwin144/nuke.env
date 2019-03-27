@@ -131,12 +131,24 @@ def recursiveLoad(verbose=False):
     if verbose: print 'files found ', filesFound
     if verbose: print >> sys.stderr, 'failed here %s\n' % lineno()  
     
-    readsList=imgSeq2NukeFormat(filesFound)
+    #readsList=imgSeq2NukeFormat(filesFound)
     
-    if verbose: print (readsList)
+    #if verbose: print (readsList)
     
-    createReads(readsList)
+    #createReads(readsList)
 
+	
+
+	readsList=imgSeq2NukeFormat(filesFound)
+
+	newReadsList=[]
+	for i in readsList:
+		i=i[2:]
+		newReadsList.append(i)
+
+	if verbose: print (newReadsList)
+
+	createReads(newReadsList)
 
  
  
